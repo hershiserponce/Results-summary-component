@@ -1,42 +1,46 @@
-import { useState, useEffect } from 'react';
+import { data } from "./assets/data";
+
 const App = () => {
-  const [data, setData] = useState([]);
-  console.log("data", data);
-  
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await fetch('../assets/data.json');
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error('Error al obtener y analizar el JSON:', error);
-      }
-    };
-  
-    getData();
-  }, []);
   return (
-   <section className="containerSumary">
+    <section className="containerSumary">
+      <section className="containerYourResult">
+        <span className="titleSection">Your Result</span>
+          <div className="containerContainerResult">
+        <div className="containerResult">
+          <span className="score">76</span>
+          <span className="range">of 100</span>
+        </div>
+          </div>
 
-<section className="containerYourResult">
-<span>Your Result</span>
-<div className="containerResult">
-  <span>76</span>
-  <span>of 100</span>
-</div>
+        <span className="great">Great</span>
+        <div className="ContainerScoreText">
+        <p className="scoreText">
+          You scored higher that 65% of the people who have taken these tests.
+        </p>
+        </div>
+      </section>
 
-<span>Great</span>
-<p>You scored higher that 65% of the people who have taken these tests.</p>
-</section>
+      <section className="containerSumaryItems">
+        <div className="sumary">Sumary</div>
+        {data.map((data, index) => (
+          <div className={`containerMapSumary color-${index + 1}`} key={data.score}>
+            <div className="section1Map">
+              <img src={data.icon} alt="" />
+              <div className={`category color-${index + 1}`}>{data.category}</div>
+            </div>
+            <div className="section2Map">
+              <div>{data.score}</div>
+              <div className="s100"> /100</div>
+            </div>
 
-<section className="containerSumaryItems">
-<span>Sumary</span>
+          </div>
+        ))}
 
-</section>
+        <button className="btnSubmit">Continue</button>
+        
+      </section>
+    </section>
+  );
+};
 
-   </section>
-  )
-}
-
-export default App
+export default App;

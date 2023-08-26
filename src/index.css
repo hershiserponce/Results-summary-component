@@ -1,7 +1,11 @@
 :root{
 --Light-red: hsl(0, 100%, 67%);
+--Light-red-DG: #ff57570d;
 --Orangey-yellow: hsl(39, 100%, 56%);
+--Orangey-yellow-DG:  hsl(39deg 100% 56% / 10%);
+
 --Green-teal: hsl(166, 100%, 37%);
+--Green-teal-DG: hsl(166deg 100% 37% / 10%);
 --Cobalt-blue: hsl(234, 85%, 45%);
 
 --Light-slate-blue-background: hsl(252, 100%, 67%);
@@ -10,12 +14,19 @@
 --Violet-blue-circle: hsla(256, 72%, 46%, 1);
 --Persian-blue-circle: hsla(241, 72%, 46%, 0);
 
---White: hsl(0, 0%, 100%)
---Pale-blue: hsl(221, 100%, 96%)
---Light-lavender: hsl(241, 100%, 89%)
---Dark-gray-blue: hsl(224, 30%, 27%)
+--White: hsl(0, 0%, 100%);
+--Pale-blue: hsl(221, 100%, 96%);
+--Light-lavender: hsl(241, 100%, 89%);
+--Dark-gray-blue: hsl(224, 30%, 27%);
+--Dark-gray-blue-DG2: hsl(224deg 30% 27% / 10%);
+--Dark-gray-blue-DG: hsl(224deg 30% 27% / 42%);
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
   font-family: 'Hanken Grotesk';
   font-weight: 500, 700, 800;
@@ -30,21 +41,193 @@ body{
 .containerSumary{
   display: flex;
  border-radius: 25px;
+ overflow: hidden;
+ box-shadow: 0px -1px 20px 1px #c9d4dc;
+ max-width: 600px;
+ margin: 0 0.5rem;
 }
 
-.containerResult{
+.containerContainerResult{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: var(--Persian-blue-circle);
+}
+
+.containerResult{
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to top, #7857ff, #694cf9, #5941f4, #4736ee, #2e2be9);
+  border-radius: 50%;
 }
 
 .containerYourResult{
   width: 50%;
-  background-color: var(--Cobalt-blue);
+  background-image: radial-gradient(circle, #7857ff, #694cf9, #5941f4, #4736ee, #2e2be9);
+  border-radius: 25px;
+}
+
+.score{
+  color: var(--White);
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.range{
+  color: var(--Light-lavender);
+  font-size: .8rem;
+}
+
+.great{
+  display: flex;
+  color: var(--White);
+  padding-top: 1rem;
+  font-size: 1.5rem;
+  justify-content: center;
+}
+
+.ContainerScoreText{
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+.scoreText{  
+  color: var(--Light-lavender);
+  font-size: .8rem;
+  width: 70%; 
+  text-align: center; /* Centrar el contenido horizontalmente */
+}
+
+.titleSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  color: var(--Light-lavender);
 }
 
 .containerSumaryItems{
 width: 50%;
+padding: 1.5rem 1.5rem;
+}
+
+.sumary{
+  font-size: 1rem;
+  color: var(--Dark-gray-blue);
+  padding-bottom: 1rem;
+  font-weight: 800;
+}
+
+.containerMapSumary.color-1 {
+  background-color: var(--Light-red-DG);
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+}
+
+.containerMapSumary.color-2 {
+  background-color: var(--Orangey-yellow-DG);
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+}
+
+.containerMapSumary.color-3 {
+  background-color:var(--Green-teal-DG);
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+}
+
+.containerMapSumary.color-4 {
+  background-color: var(--Dark-gray-blue-DG2);
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+}
+
+.category.color-1{
+  padding-left: 8px;
+  color: var(--Light-red);
+}
+
+.category.color-2{
+  padding-left: 8px;
+  color: var(--Orangey-yellow);
+}
+
+.category.color-3{
+  padding-left: 8px;
+ color:var(--Green-teal);
+}
+
+.category.color-4{
+  padding-left: 8px;
+}
+
+.containerMapSumary{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.section1Map{
+  display: flex;
+}
+
+.section2Map{
+  display: flex;
+}
+
+.s100{
+color: var(--Dark-gray-blue-DG);
+padding: 0 5px;
+}
+
+.btnSubmit{
+  border: none;
+  background: var(--Dark-gray-blue);
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--White);
+  border-radius: 25px;
+  margin: 1.2rem 0;
+}
+
+.btnSubmit:hover{
+  background: var(--Light-royal-blue-background);
+  cursor: pointer;
+}
+
+@media screen and (max-width:550px) {
+  body{
+    align-items: initial;
+  }
+   .containerSumary{
+    flex-direction: column;
+    border-radius: 0;
+    margin: 0px;
+    width: 100vw; /* El contenedor ocupa todo el ancho de la ventana */
+    max-width: 100%; /* El ancho máximo es el ancho de la ventana */
+    box-shadow: none;
+  }
+
+  .scoreText{
+    padding-bottom: 2rem;
+  }
+
+  .containerYourResult{
+    width: 100%;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .containerSumaryItems{
+    width: 100%;
+  } 
 }
